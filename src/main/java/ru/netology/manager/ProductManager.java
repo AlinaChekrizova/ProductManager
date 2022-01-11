@@ -1,4 +1,5 @@
 package ru.netology.manager;
+
 import ru.netology.domain.Book;
 import ru.netology.domain.Product;
 import ru.netology.domain.Smartphone;
@@ -19,7 +20,7 @@ public class ProductManager {
 
     public Product[] searchBy(String text) {
         Product[] result = new Product[0];
-        for (Product product: repository.findAll()) {
+        for (Product product : repository.findAll()) {
             if (matches(product, text)) {
                 Product[] tmp = new Product[result.length + 1];
                 System.arraycopy(result, 0, tmp, 0, result.length);
@@ -29,6 +30,7 @@ public class ProductManager {
         }
         return result;
     }
+
     public boolean matches(Product product, String search) {
         if (product instanceof Book) {
             Book book = (Book) product;

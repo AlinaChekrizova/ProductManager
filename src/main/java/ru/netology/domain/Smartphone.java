@@ -1,7 +1,8 @@
 package ru.netology.domain;
+
 import java.util.Objects;
 
-public class Smartphone extends Product{
+public class Smartphone extends Product {
     private String maker;
 
     public Smartphone() {
@@ -12,6 +13,7 @@ public class Smartphone extends Product{
         super(id, name, price);
         this.maker = maker;
     }
+
     public String getMaker() {
         return maker;
     }
@@ -24,6 +26,7 @@ public class Smartphone extends Product{
     public String getName() {
         return super.getName();
     }
+
     @Override
     public void setName(String name) {
         super.setName(name);

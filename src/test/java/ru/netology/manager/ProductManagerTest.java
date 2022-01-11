@@ -21,8 +21,10 @@ class ProductManagerTest {
 
 
     static ProductRepository repository = new ProductRepository();
+    static ProductManager manager = new ProductManager(repository);
+
     @BeforeAll
-    public static void init(){
+    public static void init() {
         repository.save(first);
         repository.save(second);
         repository.save(third);
@@ -33,48 +35,44 @@ class ProductManagerTest {
     }
 
 
-
-
-
     @Test
-    public void shouldSearchByBookAuthor(){
-        ProductManager manager = new ProductManager(repository);
+    public void shouldSearchByBookAuthor() {
 
         Product[] actual = manager.searchBy("Bram Stoker");
         Book[] expected = {first};
         assertArrayEquals(actual, expected);
 
     }
+
     @Test
-    public void shouldSearchByBookName(){
-        ProductManager manager = new ProductManager(repository);
+    public void shouldSearchByBookName() {
 
         Product[] actual = manager.searchBy("Three Men In a Boat");
         Book[] expected = {third};
         assertArrayEquals(actual, expected);
 
     }
+
     @Test
-    public void shouldSearchBySmartphoneMaker(){
-        ProductManager manager = new ProductManager(repository);
+    public void shouldSearchBySmartphoneMaker() {
 
         Product[] actual = manager.searchBy("Apple");
         Smartphone[] expected = {fourth};
         assertArrayEquals(actual, expected);
 
     }
+
     @Test
-    public void shouldSearchBySmartphoneName(){
-        ProductManager manager = new ProductManager(repository);
+    public void shouldSearchBySmartphoneName() {
 
         Product[] actual = manager.searchBy("9 Pro");
         Smartphone[] expected = {sixth};
         assertArrayEquals(actual, expected);
 
     }
+
     @Test
-    public void shouldReturnNoMatches(){
-        ProductManager manager = new ProductManager(repository);
+    public void shouldReturnNoMatches() {
 
         Product[] actual = manager.searchBy("11 Pro Max");
         Product[] expected = {};
